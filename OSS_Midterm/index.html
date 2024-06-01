@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><!-- Basic -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <!-- Site Metas -->
+  <title>DEV. CHA - Select Language</title>  
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Site Icons -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">    
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/style.css">    
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+
+<style>
+  /* CSS */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  video {
+    position: fixed;
+    right: 10;
+    bottom: 10;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+  }
+  .language-select {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 350px; 
+  }
+</style>
+<script>
+  function changeLanguage() {
+    var language = document.querySelector(".language-select").value;
+    if (language === 'ko') {
+      window.location.href = 'kr_index.html';
+    } else if (language === 'en') {
+      window.location.href = 'en_index.html';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var video = document.querySelector('video');
+    video.addEventListener('ended', function() {
+      video.pause();
+      video.currentTime = video.duration - 0.1;
+    });
+  });
+</script>
+</head>
+<body>
+
+<video autoplay muted>
+  <source src="video/main.mp4" type="video/mp4">
+</video>
+
+<select class="language-select" onchange="changeLanguage()">
+  <option value="">Select Language</option>
+  <option value="ko">한국어</option>
+  <option value="en">English</option>
+</select>
+
+</body>
+</html>
